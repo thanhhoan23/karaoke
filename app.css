@@ -1,0 +1,147 @@
+/* *{
+    padding: 0px;
+    margin: 0px;
+} */
+:root {
+    --primary-color: #ec1f55;
+    --text-color: #333;
+  }
+
+.mucsic{
+    max-width: 70%;
+    height: 550px ;
+    margin: 0 auto;
+    border-radius: 1;
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.music-container{
+    margin: 0 auto;
+    width: 55%;
+    height: 85%;
+
+}
+/* .img-background {
+    text-align: center;
+    width: 10%;
+    height: 20%;
+} */
+.img-background {
+    text-align: center;
+    width: -10%;
+    height: -10%;
+    border-radius: 100rem;
+}
+
+.img-background>img{
+    border-radius: 100rem;
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2);
+}
+.progress {
+    width: 100%;
+    -webkit-appearance: none;
+    height: 2px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+  }
+  
+  .progress::-webkit-slider-thumb {
+    padding-top: 10px;
+    -webkit-appearance:none;
+    appearance: none;
+    width: 12px;
+    height: 7px;
+    background-color: var(--primary-color);
+    cursor: pointer;
+  }
+
+#lyrics-before {
+    font-size: 16px;
+    font-weight: 400;
+}
+.paint{
+    color:rgb(249, 166, 180);
+    -webkit-transition: color 1s ease-out;
+    transition: color 0.05s ease-out; 
+}
+/* .paint{
+        color:transparent;
+      -webkit-transition: color 1s ease-out;
+      transition: color 0.05s ease-out; 
+      background-image: linear-gradient(to right ,#f00,rgb(255, 255, 255));
+      -webkit-background-clip: text;
+       animation-name: example;
+      animation-duration: 0.2s;
+      animation: effect 0.1s linear;
+      background-size: 1000%;
+}
+@keyframes effect {
+   0%{
+    background-position: 0% 100%;
+   }
+   100%{
+    background-position: 100% 0%;
+   }
+} */
+
+#lyrics-after {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    opacity: 0.3;
+}
+
+
+.control{
+    text-align: center;
+}
+.music-name{
+    text-align: center;
+    margin-bottom: 30px;
+
+}
+.time{
+display: flex;
+justify-content:space-between;
+align-items: center;
+color: #999;
+padding-top: 60px;
+}
+.control{
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+.play{
+    width: 100px;
+    height: 50px;
+    cursor: pointer;
+}
+    
+.img-background img {
+    animation: rotate 5s linear infinite;
+    animation-play-state: paused;
+}
+
+
+  
+  
+ 
+
+  
+ 
+  
+ 
+ 
+ 
+  
+
+  
+  
+  
