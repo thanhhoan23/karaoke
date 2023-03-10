@@ -9,7 +9,7 @@ var pLyricsAfter = document.getElementById("render-lyrics-after");
 var lyricsBeat = [];
 let isPlaying = true;
 setInterval(renderLyrics, 1);
-setInterval(paintLyric, 0,1);
+setInterval(paintLyric, 1);
 
 
 playBtn.addEventListener("click", playPause);
@@ -58,6 +58,7 @@ function handleRange(){
         let numFirst = Number(lyricsBeat[i].paramTime);
         let numSecond = 0;
         if (lyricsBeat[i + 1] != undefined) {
+            // debugger
             numSecond = Number(lyricsBeat[i + 1].paramTime);
             if ( Number(beatSong.currentTime.toFixed(2)) > Number(numFirst.toFixed(2)) &&Number(numSecond.toFixed(2))> Number(beatSong.currentTime.toFixed(2)) && check == false) {
                 render(i);
@@ -119,11 +120,12 @@ response.text().then((xml)=>{
     let paramWordsSecond = "";
     let countWord = 0;
     for (let j = 0; j < lyricsBeat[i].paramLyrics.length; j++) {
+        // debugger
         let charTime = Number(lyricsBeat[i].paramLyrics[j].timeWord);
         let firstTime = 0;
         let secondTime = Number(lyricsBeat[i].paramLyrics[j].timeWord);
         let spaceTime = 0;
-        
+         
         if(!lyricsBeat[i].paramLyrics[j+1]){
             for (let k = 0; k < lyricsBeat[i].paramLyrics[j].wordLyric.length; k++) {
                
