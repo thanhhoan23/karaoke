@@ -53,7 +53,25 @@ function formatDuration(number){
 progress.addEventListener("change", handleRange);
 function handleRange(){
     beatSong.currentTime = progress.value;
+    let check = false;
+    for (let i = 0; i < lyricsBeat.length; i++) {
+        let numFirst = Number(lyricsBeat[i].paramTime);
+        let numSecond = 0;
+        if (lyricsBeat[i + 1] != undefined) {
+            numSecond = Number(lyricsBeat[i + 1].paramTime);
+            if ( Number(beatSong.currentTime.toFixed(2)) > Number(numFirst.toFixed(2)) &&Number(numSecond.toFixed(2))> Number(beatSong.currentTime.toFixed(2)) && check == false) {
+                render(i);
+                check = true;
+            } else if (Number(beatSong.currentTime.toFixed(2)) < Number(numFirst.toFixed(2)) && check == false) {
+                pLyricsBefore.innerHTML = (`<p id='render-lyrics-before'>Nhạc dạo</p>`);
+                pLyricsAfter.innerHTML = (`<p id='render-lyrics-after'>....</p>`);
+                check = true;
+            }
+        }
+    }
+    
 }
+
 
 fetch("lyrics.xml").then((response)=>{
 response.text().then((xml)=>{
@@ -121,8 +139,16 @@ response.text().then((xml)=>{
 
                 charTime += spaceTime;
                 if(lyricsBeat[i].paramLyrics[j].wordLyric[k] != "") {
-                    paramWordsFirst += `<span style="left:-${countWord}px; position: relative;" id="${charTime.toFixed(2)}">${lyricsBeat[i].paramLyrics[j].wordLyric[k]}</span> `;
+                    if(Number(charTime.toFixed(2)) < Number(beatSong.currentTime.toFixed(2))){
+                        paramWordsFirst += `<span class="paint" style="left:-${countWord}px; position: relative;" id="${charTime.toFixed(2)}">${lyricsBeat[i].paramLyrics[j].wordLyric[k]}</span> `;
+                        countWord += 4;
+                    }
+                    else{
+                    paramWordsFirst += `<span  style="left:-${countWord}px; position: relative;" id="${charTime.toFixed(2)}">${lyricsBeat[i].paramLyrics[j].wordLyric[k]}</span> `;
                     countWord += 4;
+                    }
+                    // paramWordsFirst += `<span style="left:-${countWord}px; position: relative;" id="${charTime.toFixed(2)}">${lyricsBeat[i].paramLyrics[j].wordLyric[k]}</span> `;
+                    // countWord += 4;
                 } 
             }
         } else{
@@ -132,8 +158,16 @@ response.text().then((xml)=>{
                 charTime += spaceTime;
 
                 if (!lyricsBeat[i].paramLyrics[j].wordLyric[k] == "") {
-                    paramWordsFirst += `<span id="${charTime.toFixed(2)}" style="left:-${countWord}px; position: relative;">${lyricsBeat[i].paramLyrics[j].wordLyric[k]}</span> `;
+                    if(Number(charTime.toFixed(2)) < Number(beatSong.currentTime.toFixed(2))){
+                        paramWordsFirst += `<span class="paint" style="left:-${countWord}px; position: relative;" id="${charTime.toFixed(2)}">${lyricsBeat[i].paramLyrics[j].wordLyric[k]}</span> `;
+                        countWord += 4;
+                    }
+                    else{
+                    paramWordsFirst += `<span id="${charTime.toFixed(2)}"  style="left:-${countWord}px; position: relative;" >${lyricsBeat[i].paramLyrics[j].wordLyric[k]}</span> `;
                     countWord += 4;
+                    }
+                    // paramWordsFirst += `<span id="${charTime.toFixed(2)}" style="left:-${countWord}px; position: relative;">${lyricsBeat[i].paramLyrics[j].wordLyric[k]}</span> `;
+                    // countWord += 4;
                 } 
             }
         }

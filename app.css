@@ -66,7 +66,7 @@
     font-weight: 400;
 }
 .paint{
-    color:rgb(249, 166, 180);
+    color:rgb(209, 6, 255);
     -webkit-transition: color 1s ease-out;
     transition: color 0.05s ease-out; 
 }
@@ -97,14 +97,12 @@
     opacity: 0.3;
 }
 
-
 .control{
     text-align: center;
 }
 .music-name{
     text-align: center;
     margin-bottom: 30px;
-
 }
 .time{
 display: flex;
