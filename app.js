@@ -36,7 +36,6 @@ function timePlay(){
     const {duration, currentTime} = beatSong;
     progress.max = duration;
     progress.value = currentTime; 
-
     remainingTime.textContent = formatDuration(currentTime);
     if(!durationTime){
         durationTime.textContent = "00:00";
