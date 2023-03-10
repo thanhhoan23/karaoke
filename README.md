@@ -10,6 +10,8 @@
 <h3>Tính năng</h3>
 <li>Hiển thị lời bài hát trên màn hình</li>
 <li>Tắt/mở tiếng cho bản nhạc</li>
+<li>Tô màu chữ cho lời bản nhạc</li>
+
 </ul>
 <ul>
 <h3>Dự án được xây dựng với:  </h3>
