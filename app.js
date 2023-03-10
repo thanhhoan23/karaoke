@@ -3,8 +3,10 @@ const playBtn = document.querySelector(".play");
 const durationTime = document.querySelector(".duration");
 const remainingTime = document.querySelector(".remaining");
 const progress = document.querySelector(".progress");
+const rotate = document.querySelector(".rotate");
 var pLyricsBefore = document.getElementById("render-lyrics-before");
 var pLyricsAfter = document.getElementById("render-lyrics-after");
+
 
 var lyricsBeat = [];
 let isPlaying = true;
@@ -17,6 +19,7 @@ function playPause(){
     if(isPlaying){
         playBtn.innerHTML = `<i class="fa-sharp fa-regular fa-circle-pause"></i>`
         beatSong.play();
+        rotate.classList.add("is-playing");
         setInterval(timePlay, 500);
         isPlaying = false;
         
@@ -24,6 +27,7 @@ function playPause(){
         beatSong.pause();
         playBtn.innerHTML = `<i class="fa-sharp fa-regular fa-circle-play"></i>`
         isPlaying= true;
+        rotate.classList.remove("is-playing");
         clearInterval(timePlay, 500);
         clearInterval(renderLyrics, 1);
     }
